@@ -6,40 +6,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-img src="https://pbs.twimg.com/profile_images/3309909202/35c09b2a16de733d413957de511442cb_400x400.jpeg">
-    </ion-img>
+<ion-content>
+  <div *ngIf="!activityList">
+    <ion-card class="ion-no-padding">
+      <ion-skeleton-text animated class="skeleton-image"></ion-skeleton-text>
+      <ion-card-header>
+        <ion-skeleton-text animated></ion-skeleton-text>
+        <ion-skeleton-text animated></ion-skeleton-text> </ion-card-header
+    ></ion-card>
+    <ion-card class="ion-no-padding">
+      <ion-skeleton-text animated class="skeleton-image"></ion-skeleton-text>
+      <ion-card-header>
+        <ion-skeleton-text animated></ion-skeleton-text>
+        <ion-skeleton-text animated></ion-skeleton-text></ion-card-header
+    ></ion-card>
+    <ion-card class="ion-no-padding">
+      <ion-skeleton-text animated class="skeleton-image"></ion-skeleton-text>
+      <ion-card-header>
+        <ion-skeleton-text animated></ion-skeleton-text>
+        <ion-skeleton-text animated></ion-skeleton-text></ion-card-header
+    ></ion-card>
+  </div>
+  <ion-card
+    [routerLink]="['activity-detail', activity.id]"
+    button
+    *ngFor="let activity of (activityList | async)"
+  >
+    <ion-img [src]="activity.cropped"> </ion-img>
     <ion-card-header>
-      <ion-card-title>AL's Activity</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-img src="https://pbs.twimg.com/profile_images/3309909202/35c09b2a16de733d413957de511442cb_400x400.jpeg">
-    </ion-img>
-    <ion-card-header>
-      <ion-card-title>AL's Activity</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-img src="https://pbs.twimg.com/profile_images/3309909202/35c09b2a16de733d413957de511442cb_400x400.jpeg">
-    </ion-img>
-    <ion-card-header>
-      <ion-card-title>AL's Activity</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-img src="https://pbs.twimg.com/profile_images/3309909202/35c09b2a16de733d413957de511442cb_400x400.jpeg">
-    </ion-img>
-    <ion-card-header>
-      <ion-card-title>AL's Activity</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-img src="https://pbs.twimg.com/profile_images/3309909202/35c09b2a16de733d413957de511442cb_400x400.jpeg">
-    </ion-img>
-    <ion-card-header>
-      <ion-card-title>AL's Activity</ion-card-title>
+      <ion-card-title>{{ activity.name }}</ion-card-title>
     </ion-card-header>
   </ion-card>
 </ion-content>

@@ -1,0 +1,8 @@
+{
+  "appId": "com.albertocamillo",
+  "appName": "Rana",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
